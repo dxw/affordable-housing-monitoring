@@ -26,7 +26,7 @@ gem 'jbuilder'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-gem 'rubocop', '~> 0.75.0'
+gem 'rubocop', '~> 1.22.3'
 gem 'rubocop-rails', '~> 2.3.2'
 
 gem 'haml-rails'
