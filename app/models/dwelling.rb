@@ -12,19 +12,27 @@ class Dwelling < ApplicationRecord
 
   attr_accessor :audit_planning_application_id
 
-  TENURES = %w[open social intermediate].freeze
+  TENURES = %w[open social intermediate other].freeze
   TENURE_PRODUCTS = [
+    'Build for sale',
+    'Build to rent',
     'Social rent',
-    'Shared ownership',
-    'Shared equity',
+    'Affordable rent',
+    'London Affordable Rent',
+    'Social rent equivalent',
+    'Leasehold social',
     'London Living Rent',
     'Community Land Trust',
-    'Discounted market sale',
+    'Discount market sale',
     'Starter Home',
-    'Affordable rent',
+    'Shared equity',
     'Discount market rent',
-    'London Affordable Rent',
-    'Build to rent'
+    'Shared ownership',
+    'London Living Rent Equivalent',
+    'First homes',
+    'Housing for older people',
+    'Supported housing',
+    'Rough sleepers initiative'
   ].freeze
 
   scope :within_s106, -> { where(tenure: %w[social intermediate]) }
