@@ -13,8 +13,8 @@ Requirements: Ruby 2.6.5, [Postgres](https://postgresapp.com/)
 ```bash
 bundle
 yarn
-rake db:setup
-rails s
+bundle exec rake db:setup
+bundle exec rails s
 ```
 
 ### Docker compose setup
@@ -31,4 +31,4 @@ In either setup, the server will be running on http://localhost:3000, and the de
 
 ## Running the tests
 
-Tests can be run by running `rake`.
+Tests can be run by running `bundle exec rake`.
