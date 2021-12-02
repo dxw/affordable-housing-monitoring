@@ -2,8 +2,6 @@
 
 An alpha project for Southwark for monitoring affordable housing in the borough.
 
-More information can be found at https://www.southwark.gov.uk/innovate/collabrative-project/affordable-housing-monitoring
-
 ## Setting up the project
 
 Project can either be run locally or via Docker Compose
