@@ -27,7 +27,7 @@ gem 'jbuilder'
 gem 'bootsnap', require: false
 
 gem 'rubocop', '~> 0.75.0'
-gem 'rubocop-rails', '~> 2.3.2'
+gem 'rubocop-rails', '~> 2.5.2'
 
 gem 'haml-rails'
 gem 'simple_form'
