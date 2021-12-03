@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# script/setup: Set up the application for the first time after cloning, or set
+#               it back to the initial unused state.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Running bootstrap script..."
+script/bootstrap
+
+echo "==> Dropping any existing project database..."
+dropdb "affordable_housing_monitoring_development" > /dev/null 2>&1 || true
+dropdb "affordable_housing_monitoring_test" > /dev/null 2>&1 || true
+
+echo "==> Setting up DB..."
+bundle exec rake db:setup
