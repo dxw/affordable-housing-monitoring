@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# script/bootstrap: Resolve all dependencies that the application requires to
+#                   run.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+if ! brew bundle check >/dev/null 2>&1; then
+    echo "==> Installing Homebrew dependencies…"
+      brew bundle install --verbose --no-lock
+fi
+
+if [ -f .ruby-version ]; then
+  eval "$(rbenv init -)"
+
+  if [ -z "$(rbenv version-name 2>/dev/null)" ]; then
+    echo "==> Installing Ruby..."
+    rbenv install --skip-existing
+    rbenv rehash
+  fi
+fi
+
+echo "==> Installing Bundler..."
+gem install bundler
+
+echo "==> Installing Ruby dependencies..."
+bundle install
+
+echo "==> Installing JS dependencies..."
+yarn
+
+if brew services | grep postgresql >/dev/null 2>&1 && ! lsof -i tcp:5432 >/dev/null 2>&1; then
+  echo "==> Starting Postgres..."
+  brew services start postgresql
+fi
