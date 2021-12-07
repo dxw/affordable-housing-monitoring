@@ -8,8 +8,8 @@ class DwellingsController < ApplicationController
   def create
     @dwelling = @development.dwellings.build(dwelling_params)
     if @dwelling.save
-      flash[:notice] = 'Dwelling successfully added'
-      redirect_to development_path(@development, anchor: 'dwellings')
+      flash[:notice] = "Dwelling successfully added"
+      redirect_to development_path(@development, anchor: "dwellings")
     else
       render action: :new
     end
@@ -22,8 +22,8 @@ class DwellingsController < ApplicationController
   def update
     @dwelling = @development.dwellings.find(params[:id])
     if @dwelling.update(dwelling_params)
-      flash[:notice] = 'Dwelling successfully saved'
-      redirect_to development_path(@development, anchor: 'dwellings')
+      flash[:notice] = "Dwelling successfully saved"
+      redirect_to development_path(@development, anchor: "dwellings")
     else
       render action: :edit
     end
@@ -39,8 +39,8 @@ class DwellingsController < ApplicationController
     set_audit_params_for_deletion
 
     if @dwelling.destroy
-      flash[:notice] = 'Dwelling deleted'
-      redirect_to development_path(@development, anchor: 'dwellings')
+      flash[:notice] = "Dwelling deleted"
+      redirect_to development_path(@development, anchor: "dwellings")
     else
       render action: :delete
     end

@@ -1,23 +1,23 @@
 FactoryBot.define do
   factory :scheme do
-    name { 'Scheme name' }
-    application_number { 'AP/2019/6789' }
-    site_address { '2 Site Address, London, SE1 1AA' }
-    proposal { 'Build several buildines' }
-    developer { 'Developer Inc' }
+    name { "Scheme name" }
+    application_number { "AP/2019/6789" }
+    site_address { "2 Site Address, London, SE1 1AA" }
+    proposal { "Build several buildines" }
+    developer { "Developer Inc" }
   end
 
   factory :planning_application do
-    application_number { 'AP/2019/1234' }
+    application_number { "AP/2019/1234" }
     development
   end
 
   factory :registered_provider do
-    name { 'RPName' }
+    name { "RPName" }
   end
 
   factory :dwelling do
-    tenure { 'open' }
+    tenure { "open" }
     habitable_rooms { 1 }
     bedrooms { 1 }
     sequence(:reference_id) { |n| "A#{n}" }
@@ -28,15 +28,15 @@ FactoryBot.define do
 
   factory :user do
     sequence(:email) { |n| "person#{n}@example.com" }
-    password { 'password' }
-    password_confirmation { 'password' }
+    password { "password" }
+    password_confirmation { "password" }
   end
 
   factory :development do
-    name { 'Development name' }
-    site_address { '1 Site Address, London, SE1 1AA' }
-    proposal { 'Build a building' }
-    state { 'draft' }
+    name { "Development name" }
+    site_address { "1 Site Address, London, SE1 1AA" }
+    proposal { "Build a building" }
+    state { "draft" }
 
     transient do
       planning_applications_count { 1 }
@@ -50,7 +50,7 @@ FactoryBot.define do
 
     factory :development_with_number do
       transient do
-        application_number { 'AP/2019/1234' }
+        application_number { "AP/2019/1234" }
         planning_applications_count { 0 }
       end
       after(:build) do |dwelling, evaluator|

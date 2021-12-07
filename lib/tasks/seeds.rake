@@ -5,5 +5,5 @@ task reseed: :environment do
   Development.delete_all
   RegisteredProvider.delete_all
   User.delete_all
-  Rake::Task['db:seed'].invoke
+  Rake::Task["db:seed"].invoke
 end

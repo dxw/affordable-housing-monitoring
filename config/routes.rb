@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'developments#index'
+  root "developments#index"
 
   resources :developments do
     resources :dwellings, except: [:index] do
@@ -29,5 +29,5 @@ Rails.application.routes.draw do
 
   resources :schemes
 
-  get '/check', to: proc { [200, {}, ['OK']] }
+  get "/check", to: proc { [200, {}, ["OK"]] }
 end

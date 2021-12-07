@@ -12,7 +12,7 @@ class PlanningApplicationsController < ApplicationController
   def create
     @planning_application = @development.planning_applications.build(planning_application_params)
     if @planning_application.save
-      flash[:notice] = 'Planning application successfully added'
+      flash[:notice] = "Planning application successfully added"
       redirect_to development_planning_applications_path(@development)
     else
       render action: :new
@@ -26,7 +26,7 @@ class PlanningApplicationsController < ApplicationController
   def update
     @planning_application = @development.planning_applications.find(params[:id])
     if @planning_application.update(planning_application_params)
-      flash[:notice] = 'Planning application successfully saved'
+      flash[:notice] = "Planning application successfully saved"
       redirect_to development_planning_applications_path(@development)
     else
       render action: :edit
@@ -36,7 +36,7 @@ class PlanningApplicationsController < ApplicationController
   def destroy
     @planning_application = @development.planning_applications.find(params[:id])
     @planning_application.destroy!
-    flash[:notice] = 'Planning application deleted'
+    flash[:notice] = "Planning application deleted"
     redirect_to development_planning_applications_path(@development)
   end
 

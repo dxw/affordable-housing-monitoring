@@ -14,25 +14,25 @@ class Dwelling < ApplicationRecord
 
   TENURES = %w[open social intermediate other].freeze
   TENURE_PRODUCTS = [
-    'Build for sale',
-    'Build to rent',
-    'Social rent',
-    'Affordable rent',
-    'London Affordable Rent',
-    'Social rent equivalent',
-    'Leasehold social',
-    'London Living Rent',
-    'Community Land Trust',
-    'Discount market sale',
-    'Starter Home',
-    'Shared equity',
-    'Discount market rent',
-    'Shared ownership',
-    'London Living Rent Equivalent',
-    'First homes',
-    'Housing for older people',
-    'Supported housing',
-    'Rough sleepers initiative'
+    "Build for sale",
+    "Build to rent",
+    "Social rent",
+    "Affordable rent",
+    "London Affordable Rent",
+    "Social rent equivalent",
+    "Leasehold social",
+    "London Living Rent",
+    "Community Land Trust",
+    "Discount market sale",
+    "Starter Home",
+    "Shared equity",
+    "Discount market rent",
+    "Shared ownership",
+    "London Living Rent Equivalent",
+    "First homes",
+    "Housing for older people",
+    "Supported housing",
+    "Rough sleepers initiative"
   ].freeze
 
   scope :within_s106, -> { where(tenure: %w[social intermediate]) }
@@ -40,7 +40,7 @@ class Dwelling < ApplicationRecord
   validates :tenure, presence: true
   validates :habitable_rooms, presence: true
   validates :bedrooms, presence: true
-  validates :reference_id, presence: true, uniqueness: { scope: :development }
+  validates :reference_id, presence: true, uniqueness: {scope: :development}
 
   delegate :audit_changes?, to: :development
 
