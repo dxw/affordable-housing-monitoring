@@ -10,7 +10,7 @@ class SchemesController < ApplicationController
   def create
     @scheme = Scheme.new(scheme_params)
     if @scheme.save
-      flash[:notice] = 'Scheme successfully created'
+      flash[:notice] = "Scheme successfully created"
       if params[:development_id]
         associate_development_and_redirect
       else
@@ -33,7 +33,7 @@ class SchemesController < ApplicationController
   def update
     @scheme = Scheme.find(params[:id])
     if @scheme.update(scheme_params)
-      flash[:notice] = 'Scheme successfully saved'
+      flash[:notice] = "Scheme successfully saved"
       redirect_to scheme_path(@scheme)
     else
       render action: :edit
