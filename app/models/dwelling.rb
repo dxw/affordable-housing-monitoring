@@ -10,7 +10,7 @@ class Dwelling < ApplicationRecord
     except: %i[address uprn registered_provider_id rp_internal_id tenure_product]
   )
 
-  attr_accessor :audit_planning_application_id
+  attr_accessor :audit_planning_application_id, :bulk_import
 
   TENURES = %w[open social intermediate other].freeze
   TENURE_PRODUCTS = [
@@ -38,9 +38,9 @@ class Dwelling < ApplicationRecord
   scope :within_s106, -> { where(tenure: %w[social intermediate]) }
 
   validates :tenure, presence: true
-  validates :habitable_rooms, presence: true
+  validates :habitable_rooms, presence: true, unless: :bulk_import
   validates :bedrooms, presence: true
-  validates :reference_id, presence: true, uniqueness: {scope: :development}
+  validates :reference_id, presence: true, uniqueness: {scope: :development}, unless: :bulk_import
 
   delegate :audit_changes?, to: :development
 

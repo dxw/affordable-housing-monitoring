@@ -91,4 +91,6 @@
     %section#statistics.govuk-tabs__panel.govuk-tabs__panel--hidden
       %h2.govuk-heading-l Statistics
       - if @dwellings_statistics.any?
-        = render 'partials/statistics'
+        // TODO: enable when habitable room data is available
+        //= render 'partials/statistics', type: 'habitable_room'
+        = render 'partials/statistics', type: 'dwelling'
