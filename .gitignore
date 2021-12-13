@@ -33,3 +33,9 @@ yarn-debug.log*
 
 # Ignore docker-compose env
 docker-compose.env
+
+# Data dumps (might lead to accidental data breach)
+*.dump
+*.sql
+*.csv
+*.xls
