@@ -4,9 +4,14 @@ MAINTAINER dxw <rails@dxw.com>
 # install base packages
 RUN apt-get update -y -q2 \
   && apt-get upgrade -y -q2 \
-  && apt-get -y -q2 install \
-    nodejs \
   && apt-get -y -q2 clean
+
+# install npm and node LTS
+RUN apt-get update && apt-get install -y -q2 \
+    npm
+RUN npm install npm@latest -g && \
+    npm install n -g && \
+    n lts
 
 RUN YARN_VERSION=1.9.4 \
   set -ex \
