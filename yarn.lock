@@ -1101,10 +1101,10 @@
     mkdirp "^1.0.4"
     rimraf "^2.7.1"
 
-"@rails/actioncable@^6.0.0-alpha":
-  version "6.1.1"
-  resolved "https://registry.npmjs.org/@rails/actioncable/-/actioncable-6.1.1.tgz"
-  integrity sha512-A8toxvSuzK/wX9uMwyV6T1EYzlqzIJNrO8XiNCSNsmKresdX2cbAjxFdMu9haaPJPjl3aC2FKRJeVCUWVtLPAQ==
+"@rails/actioncable@^7.0.0-rc3":
+  version "7.0.0-rc3"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.0-rc3.tgz#e0923490596b53a9bd7e6240d1f2c75f4638d326"
+  integrity sha512-/fTBqzwenfGcNrJz51IbNvPlaHZWejqG7SW0Ln81GATQXEGnjrtovBpoWYw5U3wcSW2TEuwFvgnSgdaqZpmduw==
 
 "@rails/activestorage@^6.0.0-alpha":
   version "6.1.1"
