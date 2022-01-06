@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'Health Check', type: :request do
-  it 'returns an ok http code' do
-    get '/check', headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
+RSpec.describe "Health Check", type: :request do
+  it "returns an ok http code" do
+    get "/check", headers: {"CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json"}
 
     expect(response).to have_http_status(:ok)
   end

@@ -23,8 +23,8 @@ class DevelopmentsController < ApplicationController
   def create
     @development = Development.new(development_params)
     if @development.save
-      flash[:notice] = 'Development successfully created'
-      redirect_to development_path(@development, anchor: 'dwellings')
+      flash[:notice] = "Development successfully created"
+      redirect_to development_path(@development, anchor: "dwellings")
     else
       render action: :new
     end
@@ -42,7 +42,7 @@ class DevelopmentsController < ApplicationController
   def update
     @development = Development.find(params[:id])
     if @development.update(development_params)
-      flash[:notice] = 'Development successfully saved'
+      flash[:notice] = "Development successfully saved"
       redirect_to development_path(@development)
     else
       render action: :edit
@@ -56,7 +56,7 @@ class DevelopmentsController < ApplicationController
   def destroy
     @development = Development.find(params[:id])
     @development.destroy
-    flash[:notice] = 'Development deleted'
+    flash[:notice] = "Development deleted"
     redirect_to developments_path
   end
 
@@ -68,7 +68,7 @@ class DevelopmentsController < ApplicationController
     @development = Development.find(params[:id])
     @development.update!(params.require(:development).permit(:agreed_on_dd, :agreed_on_mm, :agreed_on_yyyy))
     @development.agree!
-    flash[:notice] = 'Development marked as agreed'
+    flash[:notice] = "Development marked as agreed"
     redirect_to development_path(@development)
   end
 
@@ -80,7 +80,7 @@ class DevelopmentsController < ApplicationController
     @development = Development.find(params[:id])
     @development.update!(params.require(:development).permit(:started_on_dd, :started_on_mm, :started_on_yyyy))
     @development.start!
-    flash[:notice] = 'Development marked as started'
+    flash[:notice] = "Development marked as started"
     redirect_to development_path(@development)
   end
 
@@ -91,7 +91,7 @@ class DevelopmentsController < ApplicationController
   def complete
     @development = Development.find(params[:id])
     @development.unconfirmed_complete!
-    flash[:notice] = 'Development marked as completed'
+    flash[:notice] = "Development marked as completed"
     redirect_to development_path(@development)
   end
 
@@ -109,7 +109,7 @@ class DevelopmentsController < ApplicationController
       @development.partially_confirmed_complete!
       render
     else
-      flash[:notice] = 'Your changes have been saved. We still need more information from you'
+      flash[:notice] = "Your changes have been saved. We still need more information from you"
       render action: :completion_response_form
     end
   end
@@ -130,7 +130,7 @@ class DevelopmentsController < ApplicationController
     @development = Development.find_by!(
       id: params[:id],
       developer_access_key: params[:dak],
-      state: 'unconfirmed_completed'
+      state: "unconfirmed_completed"
     )
   end
 
@@ -138,7 +138,7 @@ class DevelopmentsController < ApplicationController
     @development = Development.find_by!(
       id: params[:id],
       rp_access_key: params[:rpak],
-      state: 'partially_confirmed_completed'
+      state: "partially_confirmed_completed"
     )
   end
 

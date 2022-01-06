@@ -24,7 +24,7 @@ class Development < ApplicationRecord
   attr_accessor :audit_planning_application_id
 
   include AASM
-  aasm column: 'state' do
+  aasm column: "state" do
     state :draft, initial: true
     state :agreed, :started, :unconfirmed_completed, :partially_confirmed_completed, :confirmed_completed
 
@@ -51,24 +51,24 @@ class Development < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search,
-                  against: %i[proposal site_address developer],
-                  associated_against: {
-                    dwellings: [:address],
-                    planning_applications: [:application_number],
-                  }
+    against: %i[proposal site_address developer],
+    associated_against: {
+      dwellings: [:address],
+      planning_applications: [:application_number]
+    }
 
   def audit_changes?
-    state != 'draft'
+    state != "draft"
   end
 
   def completion_response_needed?
-    return false if state != 'unconfirmed_completed'
+    return false if state != "unconfirmed_completed"
 
     !completion_response_filled?
   end
 
   def completion_response_filled?
-    return false if state != 'unconfirmed_completed'
+    return false if state != "unconfirmed_completed"
 
     dwellings.within_s106.find { |dwelling| dwelling.address.blank? || dwelling.registered_provider.blank? }.blank?
   end
