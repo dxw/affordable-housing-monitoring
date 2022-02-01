@@ -9,7 +9,7 @@
     "glob-parent": "^6.0.2",
     "govuk-frontend": "^4.0.0",
     "jquery": "^3.6.0",
-    "normalize-url": "7.0.2"
+    "normalize-url": "7.0.3"
   },
   "version": "0.1.0",
   "devDependencies": {
