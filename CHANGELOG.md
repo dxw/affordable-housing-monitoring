@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog 1.0.0].
 
+## [Release 006]
+
+- Dependency updates and security patches
+
 ## [Release 005]
 
 - update puma to 5.6.4
@@ -29,6 +33,7 @@ The format is based on [Keep a Changelog 1.0.0].
 
 The changes in this and previous releases predate this changelog.
 
+[release 006]: https://github.com/dxw/affordable-housing-monitoring/releases/tag/release-006
 [release 005]: https://github.com/dxw/affordable-housing-monitoring/releases/tag/release-005
 [release 004]: https://github.com/dxw/affordable-housing-monitoring/releases/tag/release-004
 [release 003]: https://github.com/dxw/affordable-housing-monitoring/releases/tag/release-003
