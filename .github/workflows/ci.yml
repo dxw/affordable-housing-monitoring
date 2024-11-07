@@ -1,9 +1,9 @@
-name: Build
+name: CI
 
 on: [push]
 
 jobs:
-  build:
+  ci:
 
     runs-on: ubuntu-latest
     env:
@@ -21,7 +21,8 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -29,14 +30,11 @@ jobs:
     - name: Set up Node
       uses: actions/setup-node@v4
       with:
-        node-version: 16
+        node-version: 22
     - name: Install dependencies
       run: |
-        sudo apt-get -yqq install libpq-dev build-essential libcurl4-openssl-dev
-        gem install bundler
-        bundle install --jobs 4 --retry 3
         yarn install
-    - name: Setup database and run tests
+    - name: Set up database and run tests
       run: |
         cp config/database.ci.yml config/database.yml
         bundle exec rake db:create db:migrate
@@ -47,4 +45,3 @@ jobs:
         POSTGRES_USER: affordable_housing_monitoring
         POSTGRES_PASSWORD: postgres
         PGPORT: ${{ job.services.postgres.ports[5432] }}
-        RAILS_ENV: test
