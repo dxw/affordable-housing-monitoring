@@ -1,4 +1,4 @@
-FROM public.ecr.aws/q8n3y8x7/ruby:2.6.6
+FROM public.ecr.aws/q8n3y8x7/ruby:2.6.6@sha256:ec298349eee394b04222b5fe60a6769d38d66d9774aa7d16d22c1b879200ae9c
 MAINTAINER dxw <rails@dxw.com>
 
 # install base packages
