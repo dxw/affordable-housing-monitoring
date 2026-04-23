@@ -10,7 +10,7 @@ jobs:
       RAILS_ENV: test
     services:
       postgres:
-        image: postgres:17
+        image: postgres:17@sha256:5b96f1a16bd9768b060dd2ffe55cb6225c4d9ef4d214a8b21eb08134869a97e4
         env:
           POSTGRES_USER: affordable_housing_monitoring
           POSTGRES_PASSWORD: postgres
@@ -22,13 +22,13 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
     - name: Set up Node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
       with:
         node-version: 22
     - name: Install dependencies
